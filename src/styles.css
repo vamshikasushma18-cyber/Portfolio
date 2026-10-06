@@ -1,0 +1,68 @@
+:root { --bg: #e80b08; --ink: #fff; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: "Manrope", system-ui, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.has-cursor, .has-cursor a { cursor: none; }
+
+.hero { position: relative; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; background: var(--bg); }
+.stage { position: absolute; inset: 0; width: 100vw; height: 100%; object-fit: cover; display: block; background: var(--bg); }
+
+.loader { position: absolute; inset: 0; display: grid; place-items: center; background: var(--bg); z-index: 20;
+  font: 600 14px "Manrope", sans-serif; letter-spacing: .2em; transition: opacity .7s ease, visibility .7s; }
+.loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* floating glass nav */
+.nav-wrap { position: fixed; top: max(20px, env(safe-area-inset-top)); left: 0; right: 0; display: flex; justify-content: center; z-index: 10; pointer-events: none; }
+.nav { pointer-events: auto; display: flex; gap: 6px; padding: 6px; border-radius: 999px;
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); box-shadow: 0 10px 30px rgba(80,0,0,.18); }
+.nav a { padding: 10px 22px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .18em; transition: background .25s; }
+.nav a:hover, .nav a:focus-visible { background: rgba(255,255,255,.22); }
+
+/* hero copy */
+.intro { position: absolute; left: clamp(24px, 5vw, 72px); bottom: clamp(28px, 7vh, 72px); z-index: 5; max-width: min(340px, calc(100vw - 48px)); }
+.hi { margin: 0 0 4px; font-size: 15px; font-weight: 500; letter-spacing: .32em; opacity: .92; }
+.name { margin: 0 0 18px; font-family: "Dancing Script", cursive; font-weight: 700; font-size: clamp(52px, 6.4vw, 104px); line-height: .95;
+  text-shadow: 0 6px 24px rgba(90,0,0,.38); width: max-content; max-width: calc(100vw - 48px); }
+.bio { margin: 0 0 26px; font-size: 14px; line-height: 1.6; opacity: .92; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; font-size: 14px; font-weight: 600;
+  transition: background .25s, color .25s; will-change: transform; }
+.btn-solid { background: #fff; color: #b00805; }
+.btn-glass { border: 1.5px solid rgba(255,255,255,.85); background: rgba(255,255,255,.12);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* cursor */
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 100; border-radius: 50%; display: none; will-change: transform; }
+.has-cursor .cursor-dot, .has-cursor .cursor-ring { display: block; }
+.cursor-dot { width: 10px; height: 10px; background: #fff; box-shadow: 0 0 14px 3px rgba(255,255,255,.85); }
+.cursor-ring { width: 44px; height: 44px; border: 1.5px solid rgba(255,255,255,.7); background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%);
+  transition: background .3s ease; }
+.cursor-ring.hover { background: rgba(255,255,255,.2); }
+
+@media (max-width: 700px) {
+  .intro { bottom: 24px; }
+  .bio { font-size: 13px; }
+}
+
+/* sections */
+.work, .about { padding: clamp(64px, 10vh, 120px) clamp(24px, 5vw, 72px); }
+.work h2, .about h2 { margin: 0 0 28px; font-family: "Dancing Script", cursive; font-size: clamp(44px, 5vw, 76px); line-height: 1; }
+
+.about { background: #170504; color: #fff; }
+.about h2 { color: #ff8a85; }
+.summary { max-width: 760px; margin: 0 0 40px; font-size: 17px; line-height: 1.75; }
+.skills { display: grid; gap: 22px 40px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); max-width: 960px; margin: 0; }
+.skills dt { font-weight: 600; font-size: 14px; letter-spacing: .06em; margin-bottom: 4px; opacity: .8; }
+.skills dd { margin: 0; font-size: 15px; line-height: 1.5; }
+
+.work { background: var(--bg); color: #fff; }
+.work h2 { color: #fff; }
+.role { margin: 0 0 20px; font-size: 20px; font-weight: 600; }
+.points { margin: 0; padding-left: 20px; max-width: 760px; line-height: 1.7; font-size: 16px; }
+.points li { margin-bottom: 12px; }
+.points ul { margin-top: 10px; padding-left: 20px; }
+.points ul li { margin-bottom: 6px; }
