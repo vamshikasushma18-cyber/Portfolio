@@ -38,7 +38,7 @@ export default function App() {
             Swift, SwiftUI and VIPER, shipped with care from Figma to App Store.
           </p>
           <div className="actions">
-            <a className="btn btn-solid" href="/Vamshika_Sushma_Appaji_Resume.pdf" data-hover data-magnetic>
+            <a className="btn btn-solid" href="/Vamshika_Sushma_Appaji_Resume_(4).pdf" data-hover data-magnetic>
               Resume <Arrow />
             </a>
             <a className="btn btn-glass" href="mailto:vamshikasushma18@gmail.com" data-hover data-magnetic>
